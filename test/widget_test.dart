@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
+
 import 'package:fitness/providers/fitness_provider.dart';
 import 'package:fitness/screens/login_screen.dart'; 
+// Đảm bảo file login_screen.dart của bạn nằm trong lib/screens/
 
-
+// Hàm tiện ích để bọc Widget vào môi trường cần thiết (MaterialApp + Provider)
 Widget createTestableWidget(Widget child) {
-  // Vì chúng ta đang test giao diện, cần cung cấp Provider và MaterialApp
+  // Cung cấp Provider và MaterialApp để test
   return ChangeNotifierProvider<FitnessProvider>(
     create: (_) => FitnessProvider(),
     child: MaterialApp(
@@ -22,13 +24,13 @@ void main() {
     testWidgets('1. Login screen loads and displays essential elements', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
 
-      // Kiểm tra số lượng ô nhập liệu (Username và Password)
+      // Phải có 2 ô nhập liệu
       expect(find.byType(TextField), findsNWidgets(2));
       
-      // Kiểm tra nút Đăng nhập
+      // Phải có 1 nút Đăng nhập
       expect(find.byType(ElevatedButton), findsOneWidget); 
       
-      // Kiểm tra Text "ĐĂNG NHẬP"
+      // Phải có Text "ĐĂNG NHẬP" (Chú ý viết hoa)
       expect(find.text('ĐĂNG NHẬP'), findsOneWidget);
     });
 
@@ -43,6 +45,8 @@ void main() {
       await tester.pump();
       expect(find.text('test_input'), findsOneWidget);
     });
+
+    // --- TEST 3: Kiểm tra hành động bấm nút Đăng nhập (FIX LỖI CUỐI CÙNG) ---
     testWidgets('3. Tapping Login button does not crash the application', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
       
@@ -50,7 +54,8 @@ void main() {
       
       await tester.tap(loginButton);
       
-
+      // *** DÒNG FIX QUAN TRỌNG: ĐỢI BẤT ĐỒNG BỘ ***
+      // Lệnh này đợi cho các hàm async như provider.login() hoàn thành và UI ổn định.
       await tester.pumpAndSettle(); 
       
       // Kiểm tra không có ngoại lệ (crash) xảy ra
