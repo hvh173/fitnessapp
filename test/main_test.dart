@@ -24,7 +24,6 @@ void main() {
       expect(provider.targetCalories, closeTo(3094, 5));
     });
 
-    // --- TEST 3: BỎ QUA - KHẮC PHỤC LỖI CI/CD ---
     test('3. Change Password test is skipped due to environment setup', () async {
       expect(true, isTrue);
     }, skip: true); 
