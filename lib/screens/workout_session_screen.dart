@@ -359,4 +359,5 @@ class _RestTimerDialogState extends State<RestTimerDialog> {
       ),
     );
   }
+
 }
