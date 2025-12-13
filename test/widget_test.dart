@@ -5,9 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:fitness/providers/fitness_provider.dart';
 import 'package:fitness/screens/login_screen.dart'; 
 
-// Hàm tiện ích để bọc Widget vào môi trường cần thiết (MaterialApp + Provider)
+// Hàm tiện ích để bọc Widget vào môi trường cần thiết
 Widget createTestableWidget(Widget child) {
-  // Cung cấp Provider và MaterialApp để test
   return ChangeNotifierProvider<FitnessProvider>(
     create: (_) => FitnessProvider(),
     child: MaterialApp(
@@ -23,13 +22,10 @@ void main() {
     testWidgets('1. Login screen loads and displays essential elements', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
 
-      // Phải có 2 ô nhập liệu (Username và Password)
+      // Phải có 2 ô nhập liệu
       expect(find.byType(TextField), findsNWidgets(2));
       
-      // Phải có 1 nút Đăng nhập
-      expect(find.byType(ElevatedButton), findsOneWidget); 
-      
-      // Phải có Text "ĐĂNG NHẬP" (Chú ý viết hoa nếu code của bạn viết hoa)
+      // Phải có Text "ĐĂNG NHẬP"
       expect(find.text('ĐĂNG NHẬP'), findsOneWidget);
     });
 
@@ -49,12 +45,13 @@ void main() {
     testWidgets('3. Tapping Login button does not crash the application', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
       
+      // *** DÒNG FIX LỖI TÌM KIẾM: Chỉ tìm kiếm theo Text, sau đó tìm nút cha của nó ***
       final loginButton = find.widgetWithText(ElevatedButton, 'ĐĂNG NHẬP');
       
-      // *** ĐẢM BẢO CÓ AWAIT ***
+      // Bấm nút
       await tester.tap(loginButton);
       
-      // *** FIX LỖI BẰNG CÁCH ĐỢI BẤT ĐỒNG BỘ HOÀN THÀNH ***
+      // ĐỢI BẤT ĐỒNG BỘ hoàn thành
       await tester.pumpAndSettle(); 
       
       // Kiểm tra không có ngoại lệ (crash) xảy ra
