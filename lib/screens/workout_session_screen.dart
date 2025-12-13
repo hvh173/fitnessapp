@@ -226,7 +226,7 @@ class _WorkoutSessionScreenState extends State<WorkoutSessionScreen> {
                             Icons.check_rounded,
                             color: Colors.white,
                             size: 50,
-                            fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -361,3 +361,4 @@ class _RestTimerDialogState extends State<RestTimerDialog> {
   }
 
 }
+
