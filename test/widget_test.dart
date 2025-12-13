@@ -4,7 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:fitness/providers/fitness_provider.dart';
 import 'package:fitness/screens/login_screen.dart'; 
 
+
 Widget createTestableWidget(Widget child) {
+  // Vì chúng ta đang test giao diện, cần cung cấp Provider và MaterialApp
   return ChangeNotifierProvider<FitnessProvider>(
     create: (_) => FitnessProvider(),
     child: MaterialApp(
@@ -16,43 +18,40 @@ Widget createTestableWidget(Widget child) {
 void main() {
   group('UI/Widget Test - Login Screen Functionality', () {
 
+    // --- TEST 1: Kiểm tra các phần tử thiết yếu ---
     testWidgets('1. Login screen loads and displays essential elements', (WidgetTester tester) async {
-      // 1. Khởi chạy màn hình Login
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
 
-      // 2. Kiểm tra các Widget cơ bản
-      // Phải có 2 ô nhập liệu (Username và Password)
+      // Kiểm tra số lượng ô nhập liệu (Username và Password)
       expect(find.byType(TextField), findsNWidgets(2));
       
-      // Phải có 1 nút Đăng nhập
+      // Kiểm tra nút Đăng nhập
       expect(find.byType(ElevatedButton), findsOneWidget); 
       
-      // Phải có Text "ĐĂNG NHẬP"
+      // Kiểm tra Text "ĐĂNG NHẬP"
       expect(find.text('ĐĂNG NHẬP'), findsOneWidget);
     });
 
+    // --- TEST 2: Kiểm tra việc nhập liệu ---
     testWidgets('2. Entering text in Username field works correctly', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
-
+      
       final usernameField = find.byType(TextField).first;
-
-      await tester.enterText(usernameField, 'user_test_input');
-
+      
+      await tester.enterText(usernameField, 'test_input');
+      
       await tester.pump();
-      expect(find.text('user_test_input'), findsOneWidget);
+      expect(find.text('test_input'), findsOneWidget);
     });
-
     testWidgets('3. Tapping Login button does not crash the application', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
       
-      // Tìm nút Đăng nhập
       final loginButton = find.widgetWithText(ElevatedButton, 'ĐĂNG NHẬP');
       
-      // Bấm nút
       await tester.tap(loginButton);
       
-      // Vẽ lại frame
-      await tester.pump();
+
+      await tester.pumpAndSettle(); 
       
       // Kiểm tra không có ngoại lệ (crash) xảy ra
       expect(tester.takeException(), isNull);
