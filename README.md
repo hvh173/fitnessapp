@@ -8,7 +8,7 @@
 
 ## Giới thiệu
 
-Đây là ứng dụng theo dõi sức khỏe và tập luyện  được xây dựng bằng **Flutter**. Ứng dụng giúp người dùng quản lý thông tin cá nhân, tính toán chỉ số TDEE (Total Daily Energy Expenditure), và theo dõi các phiên tập luyện hàng ngày.
+Đây là ứng dụng theo dõi sức khỏe và tập luyện  được xây dựng bằng **Flutter**. Ứng dụng giúp người dùng quản lý thông tin cá nhân, tính toán chỉ số TDEE (Total Daily Energy Expenditure) và theo dõi các phiên tập luyện hàng ngày.
 
 Dự án áp dụng quy trình **CI/CD với GitHub Actions** để tự động hóa việc kiểm thử và đảm bảo chất lượng mã nguồn.
 ## Tính năng chính (CRUD & UI)
@@ -68,12 +68,12 @@ cd flutter-final-project-hvh173
 
 
 **Tóm tắt các mức điểm:**
-- **5/10**: Build thành công, kiểm thử cơ bản chạy được |X| Workflow GitHub Actions đã được cấu hình và chạy thành công, k lỗi biên dịch
-- **6/10**: CRUD cơ bản với một đối tượng. |X| Đã thực hiện trọn vẹn CRUD cho đối tượng (Tạo hồ sơ, Xem chỉ số, Cập nhật cân nặng,chiều cao)
-- **7/10**: CRUD và quản lý trạng thái (hiển thị giao diện cơ bản). |X| Sử dụng **`Provider`** để quản lý trạng thái - Khi cập nhật thông tin (Cân nặng/Mục tiêu), chỉ số TDEE và giao diện thay đổi tức thì mà không cần load lại app - Có thông báo phản hồi người dùng
-- **8/10**: CRUD, trạng thái, và tích hợp API/CSDL với thông báo lỗi. |X| Tích hợp Localstore, sử dụng khi offline, đảm bảo UI k bị treo.
-- **9/10**: Hoàn thiện kiểm thử CRUD, trạng thái, tích hợp API/CSDL; UI thân thiện. |X| Hiện từng ô màu riêng khi Click, bố cục rõ ràng **Chức năng nâng cao:** Tính toán tự động các chỉ số sức khỏe dựa trên thông tin ng dùng
-- **10/10**: Tối ưu hóa hoàn chỉnh, UI/UX mượt mà, CI/CD đầy đủ và ổn định. CI/CD đã ổn định nhưng test case có thể mở rộng hơn nữa. 
+- **5/10** | **Build thành công (GitHub Actions "Success")** |  **ĐẠT.** <br> - Workflow GitHub Actions đã được cấu hình và chạy thành công (màu xanh). <br> - Không có lỗi biên dịch |
+- **6/10** | **Thành công với kiểm thử cơ bản (CRUD tối thiểu)** |  **ĐẠT.** <br> - Đã thực hiện trọn vẹn CRUD cho đối tượng `User Info` (Tạo hồ sơ, Xem chỉ số, Cập nhật cân nặng/chiều cao) |
+- **7/10** | **Kiểm thử CRUD & Quản lý trạng thái (State Management)** |  **ĐẠT.** <br> - Sử dụng **`Provider`** để quản lý trạng thái. <br> - Khi cập nhật thông tin (Cân nặng, Mục tiêu), chỉ số TDEE và giao diện thay đổi tức thì mà không cần load lại app. <br> - Có thông báo phản hồi người dùng. |
+- **8/10** | **Tích hợp API/CSDL & Xử lý lỗi** | **ĐẠT.** <br> - Tích hợp **`Localstore` (NoSQL)** để lưu trữ dữ liệu dùng offline. <br> - Xử lý các tác vụ bất đồng bộ (`Future`, `async/await`) đảm bảo UI không bị treo khi ghi/đọc dữ liệu. |
+- **9/10** | **Kiểm thử tự động toàn diện & Giao diện hoàn thiện** |  **ĐẠT.** <br> - **Unit Test:** Đã kiểm thử logic nghiệp vụ tính toán TDEE phức tạp. <br> - **Widget Test:** Đã kiểm thử giao diện đăng nhập và các tương tác người dùng. <br> - **Giao diện:** Hoàn thiện, hỗ trợ chế độ tối (Dark theme), bố cục rõ ràng. <br> - **Chức năng nâng cao:** Tính toán tự động các chỉ số sức khỏe dựa trên input người dùng. |
+- **10/10** | **UI/UX mượt mà, Tối ưu hóa, Tính năng nâng cao** |  **Cần cải thiện.** <br> - Dự án đã tối ưu hóa luồng dữ liệu nhưng chưa tích hợp các tính năng tìm kiếm, lọc phức tạp. CI/CD đã ổn định nhưng test case có thể mở rộng thêm độ bao phủ|
 
 
 ## Tự đánh giá điểm: 9/10
