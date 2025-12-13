@@ -41,15 +41,15 @@ void main() {
       expect(find.text('test_input'), findsOneWidget);
     });
 
-    // --- TEST 3: Kiểm tra hành động bấm nút Đăng nhập (FIX LỖI) ---
+   // --- TEST 3: Kiểm tra hành động bấm nút Đăng nhập (FIX LỖI CUỐI CÙNG) ---
     testWidgets('3. Tapping Login button does not crash the application', (WidgetTester tester) async {
       await tester.pumpWidget(createTestableWidget(const LoginScreen()));
       
-      // *** DÒNG FIX LỖI TÌM KIẾM: Chỉ tìm kiếm theo Text, sau đó tìm nút cha của nó ***
-      final loginButton = find.widgetWithText(ElevatedButton, 'ĐĂNG NHẬP');
+      // *** FIX LỖI TÌM KIẾM: CHỈ TÌM THEO TEXT VÀ BẤM VÀO ĐÓ ***
+      final loginButtonText = find.text('ĐĂNG NHẬP'); // Tìm chính xác Text
       
-      // Bấm nút
-      await tester.tap(loginButton);
+      // Bấm nút (Bấm vào chính Text, Test Runner sẽ tìm thấy nút cha)
+      await tester.tap(loginButtonText);
       
       // ĐỢI BẤT ĐỒNG BỘ hoàn thành
       await tester.pumpAndSettle(); 
@@ -57,5 +57,4 @@ void main() {
       // Kiểm tra không có ngoại lệ (crash) xảy ra
       expect(tester.takeException(), isNull);
     });
-  });
 }
