@@ -68,12 +68,13 @@ cd flutter-final-project-hvh173
 
 
 **Tóm tắt các mức điểm:**
-- **5/10**: Build thành công, kiểm thử cơ bản chạy được.
-- **6/10**: CRUD cơ bản với một đối tượng.
-- **7/10**: CRUD và quản lý trạng thái (hiển thị giao diện cơ bản).
-- **8/10**: CRUD, trạng thái, và tích hợp API/CSDL với thông báo lỗi.
-- **9/10**: Hoàn thiện kiểm thử CRUD, trạng thái, tích hợp API/CSDL; UI thân thiện.
-- **10/10**: Tối ưu hóa hoàn chỉnh, UI/UX mượt mà, CI/CD đầy đủ và ổn định.
+- **5/10**: Build thành công, kiểm thử cơ bản chạy được |X| Workflow GitHub Actions đã được cấu hình và chạy thành công, k lỗi biên dịch
+- **6/10**: CRUD cơ bản với một đối tượng. |X| Đã thực hiện trọn vẹn CRUD cho đối tượng (Tạo hồ sơ, Xem chỉ số, Cập nhật cân nặng,chiều cao)
+- **7/10**: CRUD và quản lý trạng thái (hiển thị giao diện cơ bản). |X| Sử dụng **`Provider`** để quản lý trạng thái - Khi cập nhật thông tin (Cân nặng/Mục tiêu), chỉ số TDEE và giao diện thay đổi tức thì mà không cần load lại app - Có thông báo phản hồi người dùng
+- **8/10**: CRUD, trạng thái, và tích hợp API/CSDL với thông báo lỗi. |X| Tích hợp Localstore, sử dụng khi offline, đảm bảo UI k bị treo.
+- **9/10**: Hoàn thiện kiểm thử CRUD, trạng thái, tích hợp API/CSDL; UI thân thiện. |X| Hiện từng ô màu riêng khi Click, bố cục rõ ràng **Chức năng nâng cao:** Tính toán tự động các chỉ số sức khỏe dựa trên thông tin ng dùng
+- **10/10**: Tối ưu hóa hoàn chỉnh, UI/UX mượt mà, CI/CD đầy đủ và ổn định. CI/CD đã ổn định nhưng test case có thể mở rộng hơn nữa. 
+
 
 ## Tự đánh giá điểm: 9/10
 
