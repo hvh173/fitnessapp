@@ -28,8 +28,9 @@ Dự án áp dụng quy trình **CI/CD với GitHub Actions** để tự động
 ## Công nghệ và Thư viện sử dụng
 
 * **Framework:** Flutter & Dart
+* **Architecture Pattern:** Clean Architecture + MVVM
 * **State Management:** `provider` 
-* **Database:** `localstore` 
+* **Database:** `localstore`, `shared_preferences`
 * **Testing:** `flutter_test` 
 * **CI/CD:** GitHub Actions.
 
