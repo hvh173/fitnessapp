@@ -1,5 +1,5 @@
 
-# Bài tập lớn - Phát triển ứng dụng với Flutter
+# Nền tảng - Flutter
 # Đề tài: App Tập luyện tại nhà
 
 - **Họ và tên**: Hoàng Việt Hà
@@ -19,8 +19,8 @@ Dự án áp dụng quy trình **CI/CD với GitHub Actions** để tự động
 
 2.  **Quản lý tập luyện (Workout Management):**
     * Xem danh sách bài tập.
-    * Theo dõi phiên tập (Workout Session Screen)
-    * Lên lịch tập luyện (Schedule)
+    * Theo dõi phiên tập 
+    * Lên lịch tập luyện 
 
 3.  **Lưu trữ dữ liệu:**
     * Sử dụng lưu trữ cục bộ (Local Storage/NoSQL) để lưu trạng thái người dùng và lịch sử tập luyện, đảm bảo ứng dụng hoạt động offline.
@@ -28,9 +28,9 @@ Dự án áp dụng quy trình **CI/CD với GitHub Actions** để tự động
 ## Công nghệ và Thư viện sử dụng
 
 * **Framework:** Flutter & Dart
-* **State Management:** `provider` (Quản lý trạng thái tập trung)
+* **State Management:** `provider` 
 * **Database:** `localstore` 
-* **Testing:** `flutter_test` (Main Test & Widget Test).
+* **Testing:** `flutter_test` 
 * **CI/CD:** GitHub Actions.
 
 
@@ -38,7 +38,7 @@ Dự án áp dụng quy trình **CI/CD với GitHub Actions** để tự động
 
 
 
-## Báo cáo kết quả
+## Kết quả
 
 Hướng dẫn sử dụng ứng dụng: 
 1. Tải mã nguồn từ repository.
