@@ -1,10 +1,9 @@
 
 # Bài tập lớn - Phát triển ứng dụng với Flutter
 # Đề tài: App Tập luyện tại nhà
-## Thông tin sinh viên
+
 - **Họ và tên**: Hoàng Việt Hà
-- **MSSV**: 2221050726
-- **Lớp**: DCCTCLC67B
+
 
 ## Giới thiệu
 
